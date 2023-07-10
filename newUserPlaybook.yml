@@ -1,10 +1,25 @@
 ---
 - name: New User Playbook
-  hosts: 
+  hosts: all
   become: yes
 
-    tasks:
-
+  tasks:
+    - name: create User John
+      tags: always
+      user:
+        name: John
+        groups: root
+        
+    - name: add sudoers file for John
+      tags: always
+      copy:
+        src: sudoers_john
+        dest: etc/sudoers.d/John
+        name: John
+        owner: root
+        group: root
+        mode: 0440
+          
     - name: Install a tmux and vim
       ansible.builtin.apt:
         pkg:

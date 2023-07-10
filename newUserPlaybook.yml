@@ -6,9 +6,10 @@
   tasks:
     - name: create User John
       tags: always
-      user:
+      ansible.builtin.user:
         name: John
-        groups: root
+        home: /better-place/john
+        uid: 1234
         
     - name: add sudoers file for John
       tags: always
@@ -16,8 +17,6 @@
         src: sudoers_john
         dest: etc/sudoers.d/John
         name: John
-        owner: root
-        group: root
         mode: 0440
           
     - name: Install a tmux and vim

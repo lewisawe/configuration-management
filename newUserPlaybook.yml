@@ -1,0 +1,13 @@
+---
+- name: New User Playbook
+  hosts: 
+  become: yes
+
+    tasks:
+
+    - name: Install a tmux and vim
+      ansible.builtin.apt:
+        pkg:
+        - tmux
+        - vim
+

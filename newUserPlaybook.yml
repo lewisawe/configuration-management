@@ -25,3 +25,19 @@
         - tmux
         - vim
 
+    - name: Download Terraform binary
+      get_url:
+        url: "https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip"
+        dest: "/tmp/terraform.zip"
+
+    - name: Unzip Terraform binary
+      unarchive:
+        src: "/tmp/terraform.zip"
+        dest: "/usr/local/bin"
+        remote_src: yes
+        creates: "/usr/local/bin/terraform"
+
+    - name: Set permissions for Terraform
+      file:
+        path: "/usr/local/bin/terraform"
+        mode: "0755"

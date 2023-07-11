@@ -1,6 +1,6 @@
 ---
 - name: New User Playbook
-  hosts: all
+  hosts: localhost
   become: yes
 
   tasks:
@@ -10,7 +10,14 @@
         name: John
         home: /better-place/john
         uid: 1234
-        
+    - name: Copy nice-script.sh to the user's home directory
+      copy:
+        src: /nice-script.sh
+        dest: /better-place/john/nice-script.sh
+        mode: '0755'
+        owner: john
+        group: john
+       
     - name: add sudoers file for John
       tags: always
       copy:
@@ -21,7 +28,9 @@
           
     - name: Install a tmux and vim
       ansible.builtin.apt:
-        pkg:
+        name: "{{ item }}"
+        state: present
+        with_items:
         - tmux
         - vim
 

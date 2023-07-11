@@ -1,6 +1,6 @@
 ---
 - name: New User Playbook
-  hosts: localhost
+  hosts: all
   become: yes
 
   tasks:

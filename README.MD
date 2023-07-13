@@ -5,10 +5,10 @@
 
 ## Prerequisites 
 * AWS Account. Plus install and configure AWS CLI 
-  - AWS CLI Installation Guide  [ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html]
-  - Configure your AWS Credentials and  the environment variables [https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html]
-* Install Terraform [https://developer.hashicorp.com/terraform/downloads]
-* Install Ansible [https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html]
+  - [AWS CLI Installation Guide]  (https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+  - [Configure your AWS Credentials and  the environment variables] (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+* Install [Terraform] (https://developer.hashicorp.com/terraform/downloads)
+* Install [Ansible] (https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
 ## Set up a server with terraform
 

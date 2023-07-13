@@ -58,10 +58,22 @@ terraform destroy
 ```
 
 ## Create and Deploy an Ansible Playbook
+My ansible application consists of 
+* The playbook
+  - Contains the configuration to:
+      - Create a skeleton Directory
+      - The nice-script to list all mounted systems
+      - Create A new user named John
+      - Have John run commands without using Sudo
+      - Install Vim and tmux
+      - Install Terraform
+* My nice script
+* host file to store my ip address
 
-Running the Playbook
+### Running the Playbook
 
 Ensure Virtual Env is installed using
+
 ```
 pip install virtualenv
 ```
@@ -79,11 +91,14 @@ source env/bin/activate
 ```
 * From the Terraform outputs ensure you note the external Ip which you will copy into the ansible_hosts file
 * Have the Pem Key downloaded in your local machine
+* Set appropriate permissions for the pem file
 
 Run the playbook
 
 ```
 ansible-playbook newUserPlaybook.yml -i ansible_hosts --user ubuntu --key-file private.pem -e "key=/.ssh/id_rsa.pub"
 ```
+
+If successful you should have green messages indicating all the playbooks ran as planned.
 
 

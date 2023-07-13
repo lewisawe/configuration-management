@@ -29,23 +29,22 @@
 * Outputs
   - If the terraform configuration successfully runs it will output public and private IPs
 
-###
+### Running the Terraform configuration 
+Use the following steps and commands
 
-Running the Terraform configuration using following commands
-
-To initializes your Terraform working directory.
+Initializes your Terraform working directory.
 ```
 terraform init
 ```
-To Create an execution plan based on your Terraform configuration
+Create an execution plan based on your Terraform configuration
 ```
 terraform plan
 ```
-To executes the changes specified in the Terraform plan
+Execute the changes specified in the Terraform plan
 ```
 terraform apply
 ```
-To destroy the resources created by terraform
+Destroy the resources created by terraform
 ```
 terraform destroy
 ```

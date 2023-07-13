@@ -59,3 +59,31 @@ terraform destroy
 
 ## Create and Deploy an Ansible Playbook
 
+Running the Playbook
+
+Ensure Virtual Env is installed using
+```
+pip install virtualenv
+```
+
+Create a virtual eviroment with python
+
+```
+python3 -m venv env
+```
+
+Activate the Virtual Environment
+```
+source env/bin/activate
+
+```
+* From the Terraform outputs ensure you note the external Ip which you will copy into the ansible_hosts file
+* Have the Pem Key downloaded in your local machine
+
+Run the playbook
+
+```
+ansible-playbook newUserPlaybook.yml -i ansible_hosts --user ubuntu --key-file private.pem -e "key=/.ssh/id_rsa.pub"
+```
+
+

@@ -1,6 +1,6 @@
 ---
 - name: New User Playbook
-  hosts: all
+  hosts: ec2Server
   become: yes
   tasks:
     - name: Create skeleton directory for new users

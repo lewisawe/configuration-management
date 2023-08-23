@@ -1,6 +1,6 @@
 ---
 - name: New User Playbook
-  hosts: ec2Server
+  hosts: all
   become: yes
   tasks:
     - name: Create skeleton directory for new users
@@ -45,23 +45,23 @@
           - vim
         state: present
 
-    - name: Install Terraform CLI
-      block:
-        - name: Download Terraform archive
-          get_url:
-            url: "https://releases.hashicorp.com/terraform/0.15.5/terraform_0.15.5_linux_amd64.zip"
-            dest: /tmp/terraform.zip
+  #   - name: Install Terraform CLI
+  #     block:
+  #       - name: Download Terraform archive
+  #         get_url:
+  #           url: "https://releases.hashicorp.com/terraform/0.15.5/terraform_0.15.5_linux_amd64.zip"
+  #           dest: /tmp/terraform.zip
 
-        - name: Unzip Terraform archive
-          unarchive:
-            src: /tmp/terraform.zip
-            dest: /usr/local/bin/
-            remote_src: yes
-            mode: '0755'
-          notify: Update PATH environment variable
+  #       - name: Unzip Terraform archive
+  #         unarchive:
+  #           src: /tmp/terraform.zip
+  #           dest: /usr/local/bin/
+  #           remote_src: yes
+  #           mode: '0755'
+  #         notify: Update PATH environment variable
 
-  handlers:
-    - name: Update PATH environment variable
-      shell: echo "export PATH=$PATH:/usr/local/bin" >> /etc/profile
-      changed_when: false
+  # handlers:
+  #   - name: Update PATH environment variable
+  #     shell: echo "export PATH=$PATH:/usr/local/bin" >> /etc/profile
+  #     changed_when: false
 

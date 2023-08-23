@@ -1,5 +1,5 @@
-[ec2Server]
-35.89.252.206
+[hosts_to_add_key]
+18.236.78.80
 
-[Vars]
+[hosts_to_add_key:vars]
 ansible_ssh_common_args="-o StrictHostKeyChecking=no"
